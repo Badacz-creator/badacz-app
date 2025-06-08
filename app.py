@@ -31,4 +31,5 @@ def download():
     return send_file(docx_file_path, as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # 🔧 Kluczowa zmiana: Render potrzebuje portu i hosta
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
