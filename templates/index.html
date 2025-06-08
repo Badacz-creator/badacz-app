@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Badacz AI</title>
+</head>
+<body>
+    <h1>Asystent Badacz</h1>
+    <form method="POST">
+        <textarea name="prompt" rows="10" cols="80" placeholder="Wpisz pytanie..."></textarea><br><br>
+        <button type="submit">Wyślij</button>
+    </form>
+
+    {% if answer %}
+        <h2>Odpowiedź:</h2>
+        <p>{{ answer }}</p>
+        {% if docx_file_path %}
+            <a href="{{ url_for('download') }}?path={{ docx_file_path }}">📄 Pobierz jako DOCX</a>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
